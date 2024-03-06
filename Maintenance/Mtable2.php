@@ -1,5 +1,5 @@
 <?php
-session_start();
+  session_start();
 
   if(!isset($_SESSION['ID'])) {
     header("Location: ../index.php");
@@ -52,8 +52,9 @@ session_start();
             foreach ( $results as $r ) {
               echo '<tr>';
               foreach ( $r as $v ) {
-                      echo '<td>'.$v.'</td>';
+                echo '<td style="word-break: break-all;">'.$v.'</td>';
               }
+              echo '</tr>';
           }
         ?>
       </tbody>

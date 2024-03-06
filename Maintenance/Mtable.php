@@ -62,7 +62,7 @@
         foreach ( $results as $r ) {
           echo '<tr>';
           foreach ( $r as $v ) {
-                  echo '<td>'.$v.'</td>';
+            echo '<td style="word-break: break-all;">'.$v.'</td>';
           }
           echo '<td>';
           echo '<a href="./Mtable-edit.php?id=' . $r['ID'] . '" style="margin-right: 10px;"><i class="fa fa-edit"></i></a>';

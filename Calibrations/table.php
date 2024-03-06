@@ -1,10 +1,10 @@
-
 <?php 
-
-  if(!isset($_SESSION)) {  
+  ini_set('display_errors', 1);
+  ini_set('display_errors', E_ALL);
+  error_reporting(E_ALL);
+  if(!isset($_SESSION)) {
     session_start();
   }
-
   if(!isset($_SESSION['ID'])) {
     header("Location: ../index.php");
     exit();

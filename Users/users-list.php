@@ -1,27 +1,17 @@
 
 <?php 
-  if(!isset($_SESSION)) {
-    session_start();
-  }
-
-  if(!isset($_SESSION['ID'])) {
-    header("Location: ../index.php");
-    exit();
-  }
-  
-  if($_SESSION['tipo_usuario'] !== "admin") {
-    header("Location: ../home.php");
-    exit();
-  }
+  ini_set('display_errors', 1);
+  ini_set('display_errors', E_ALL);
+  error_reporting(E_ALL);
 
   include('../db.php');
   $conn = mysqli_connect($host, $user, $pass, $db);
-  
-  
+
   if (mysqli_connect_errno())
   {
-      echo "Fallo la conexion a la base de datos: " . mysqli_connect_error();
+    echo "Fallo la conexion a la base de datos: " . mysqli_connect_error();
   }
+
   $results = mysqli_query($conn, "SELECT ID, user, tipo_usuario FROM usuarios");
 ?>
 
@@ -30,15 +20,15 @@
   <head>
     <title>Lista de usuarios</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../styles/table.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <script>
       function confirmarEliminacion(id) {
         var confirmacion = window.confirm("¿Estás seguro de que quieres eliminar este registro?");
 
         if (confirmacion) {
-          window.location.href = "delete.php?id=" + id;
+          window.location.href = "./delete.php?id=" + id;
         }
       }
     </script>

@@ -1,7 +1,6 @@
 <?php
   session_start();
 
- 
   if($_SESSION['tipo_usuario'] !== "admin") {
     header("Location: ../home.php");
     exit();
@@ -9,7 +8,7 @@
 
   // Revisar si el usuario esta logeado
   if(!isset($_SESSION['ID'])) {
-    header("Location: ../index.html");
+    header("Location: ../index.php");
     exit();
   }
 
